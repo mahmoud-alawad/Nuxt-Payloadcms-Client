@@ -1,6 +1,6 @@
 import { useRuntimeConfig } from '#imports'
 
-export const usePayloadCmsUrl = (): string => {
+export const usePayloadUrl = (): string => {
   const config = process.server ? useRuntimeConfig() : useRuntimeConfig().public
   return `${config.payloadCms.url}${config.payloadCms.prefix}`
 }

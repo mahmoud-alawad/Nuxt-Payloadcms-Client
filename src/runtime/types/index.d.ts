@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 
-export type PayloadCmsLocale =
+export type PayloadLocale =
   | 'af'
   | 'af-NA'
   | 'af-ZA'
@@ -502,7 +502,7 @@ export type PayloadCmsLocale =
   | 'zu'
   | 'zu-ZA'
 
-export type PayloadCmsAuthProvider =
+export type PayloadAuthProvider =
   | 'github'
   | 'facebook'
   | 'google'
@@ -518,8 +518,7 @@ export type PayloadCmsAuthProvider =
   | 'auth0'
   | string
 
-
-export type PayloadCmsUser = {
+export type PayloadUser = {
   id: number
   name?: string
   email?: string
@@ -527,46 +526,43 @@ export type PayloadCmsUser = {
   updatedAt?: string
 } | null
 
-export interface PayloadCmsAuthenticationResponse {
-  user: Ref<PayloadCmsUser>
-  jwt: string
+export interface PayloadAuthenticationResponse {
+  user: Ref<PayloadUser>
+  token: string
 }
 
-export interface PayloadCmsAuthenticationData {
-  identifier: string
-  password: string
-}
-
-export interface PayloadCmsRegistrationData {
-  username?: string
+export interface PayloadAuthenticationData {
   email: string
   password: string
-  [field: string]: string | number | boolean | object | Array<string | number | boolean | object>
 }
 
-export interface PayloadCmsForgotPasswordData {
+export interface PayloadRegistrationData {
+  email: string
+  password: string
+  passwordConfirm: string
+}
+
+export interface PayloadForgotPasswordData {
   email: string
 }
 
-export interface PayloadCmsResetPasswordData {
+export interface PayloadResetPasswordData {
   code: string
   password: string
   passwordConfirmation: string
 }
 
-export interface PayloadCmsChangePasswordData {
+export interface PayloadChangePasswordData {
   currentPassword: string
   password: string
   passwordConfirmation: string
 }
 
-export interface PayloadCmsEmailConfirmationData {
+export interface PayloadEmailConfirmationData {
   email: string
 }
 
-export interface PayloadCmsGraphqlVariables {
+export interface PayloadGraphqlVariables {
   [variable: string]: unknown
 }
 
-export * from './v3'
-export * from './v4'

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useCookie, useNuxtApp, useRuntimeConfig } from '#imports'
 
-export const usePayloadCmsToken = () => {
+export const usePayloadToken = () => {
   const nuxt = useNuxtApp()
   const config = process.server ? useRuntimeConfig() : useRuntimeConfig().public
 

@@ -1,8 +1,8 @@
 import type { FetchError, FetchOptions } from 'ofetch'
 import { stringify } from 'qs'
-import type { PayloadCmsError } from '../types/v4'
-import { usePayloadCmsUrl } from './usePayloadCmsUrl'
-import { usePayloadCmsToken } from './usePayloadCmsToken'
+import type { PayloadError } from '../types/v4'
+import { usePayloadUrl } from './usePayloadUrl'
+import { usePayloadToken } from './usePayloadToken'
 import { useNuxtApp } from '#imports'
 
 const defaultErrors = (err: FetchError) => ({
@@ -12,10 +12,10 @@ const defaultErrors = (err: FetchError) => ({
   details: err,
 })
 
-export const usePayloadCmsClient = () => {
+export const usePayloadClient = () => {
   const nuxt = useNuxtApp()
-  const baseURL = usePayloadCmsUrl()
-  const token = usePayloadCmsToken()
+  const baseURL = usePayloadUrl()
+  const token = usePayloadToken()
 
   return async <T>(
     url: string,
@@ -49,7 +49,7 @@ export const usePayloadCmsClient = () => {
       })
     } catch (err: any) {
       // @ts-ignore
-      const e: PayloadCmsError = err.data || defaultErrors(err)
+      const e: PayloadError = err.data || defaultErrors(err)
 
       nuxt.hooks.callHook('payloadCms:error' as any, e)
       throw e
