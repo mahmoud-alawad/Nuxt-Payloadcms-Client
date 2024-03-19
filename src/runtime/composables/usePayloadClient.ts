@@ -1,6 +1,5 @@
 import type { FetchError, FetchOptions } from 'ofetch'
 import { stringify } from 'qs'
-import type { PayloadError } from '../types/v4'
 import { usePayloadUrl } from './usePayloadUrl'
 import { usePayloadToken } from './usePayloadToken'
 import { useNuxtApp } from '#imports'

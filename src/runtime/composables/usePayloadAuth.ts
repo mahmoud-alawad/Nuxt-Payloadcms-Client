@@ -27,6 +27,7 @@ export const usePayloadAuth = () => {
   const setToken = (value: string | null) => {
     token.value = value
   }
+  
   const setUser = (value: PayloadUser) => {
     user.value = value
   }
@@ -35,7 +36,8 @@ export const usePayloadAuth = () => {
     if (token.value) {
       try {
         user.value = await client('/users/me', {
-          params: config.payloadCms.auth,
+          //@ts-ignore
+          params: config.payload.auth,
         })
       } catch (e) {
         setToken(null)
@@ -64,7 +66,8 @@ export const usePayloadAuth = () => {
     )
 
     setToken(token)
-
+    
+    setUser(user.value)    
     return {
       user,
       token,
@@ -80,7 +83,10 @@ export const usePayloadAuth = () => {
       await client('/users/logout', { method: 'POST' })
       setToken(null)
       setUser(null)
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+      
+    }
   }
 
   /**

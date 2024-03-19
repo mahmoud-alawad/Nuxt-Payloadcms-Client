@@ -6,11 +6,11 @@ export const usePayloadToken = () => {
   const config = process.server ? useRuntimeConfig() : useRuntimeConfig().public
 
   nuxt._cookies = nuxt._cookies || {}
-  if (nuxt._cookies[config.payloadCms.cookieName]) {
-    return nuxt._cookies[config.payloadCms.cookieName]
+  if (nuxt._cookies[config.payload.cookieName]) {
+    return nuxt._cookies[config.payload.cookieName]
   }
 
-  const cookie = useCookie<string | null>(config.payloadCms.cookieName, config.payloadCms.cookie)
-  nuxt._cookies[config.payloadCms.cookieName] = cookie
+  const cookie = useCookie<string | null>(config.payload.cookieName, config.payload.cookie)
+  nuxt._cookies[config.payload.cookieName] = cookie
   return cookie
 }

@@ -1,0 +1,8 @@
+{
+  "name": "@nuxtjs/payload",
+  "configKey": "payload",
+  "compatibility": {
+    "nuxt": "^3.0.0-rc.8"
+  },
+  "version": "1.0.0"
+}

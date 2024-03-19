@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   //     payloadCms: { url: 'http://localhost:4000' }
   //   }
   // },
-  payloadCms: {
-    url: 'http://localhost:4000'
+  payload: {
+    url: 'http://172.21.0.1:4000'
     // To enable the devtools,
     // devtools: true
   },
