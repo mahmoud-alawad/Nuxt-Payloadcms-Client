@@ -29,7 +29,7 @@ node_modules
 .vscode
 .DS_Store
 coverage
-# dist
+dist
 sw.js
 
 .output
