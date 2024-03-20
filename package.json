@@ -1,0 +1,59 @@
+{
+  "name": "@nuxtjs/payload",
+  "version": "1.0.1",
+  "description": "Payloadcms module for Nuxt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmoud-alawad/Nuxt-Payloadcms-Client.git"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "prepack": "yarn build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "release": "yarn lint && standard-version && git push --follow-tags"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.9.1",
+    "defu": "^6.1.4",
+    "graphql": "^16.8.1",
+    "qs": "^6.11.2",
+    "ufo": "^1.3.2"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.0.8",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/module-builder": "^0.5.5",
+    "@types/node": "^20.11.0",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "nuxt": "^3.11.1",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.3.3",
+    "vue-tsc": "^1.8.27"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/mahmoud-alawad/Nuxt-Payloadcms-Client/issues"
+  },
+  "homepage": "https://github.com/mahmoud-alawad/Nuxt-Payloadcms-Client#readme",
+  "author": "mahmoud <awad25.ma@gmail.com>"
+}
